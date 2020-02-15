@@ -13,5 +13,8 @@ RUN apk --no-cache --virtual build-dependencies add build-base libffi-dev openss
 RUN pip install requests==2.22.0
 
 # Create user 'app' and downgrade permission from 'root' to 'app'
-RUN adduser -D app && su app
+RUN adduser -D app
+
+# Downgrade from 'root' to 'app'
+USER app
 
